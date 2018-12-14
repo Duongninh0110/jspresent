@@ -7,10 +7,10 @@ $age = $_POST['age'];
 echo $age;
 $sex = $_POST['sex'];
 echo $sex;
-$wpm = $_POST['wpm'];
+$salaryPD = $_POST['salaryPD'];
 echo $wpm;  
 
-$query = "INSERT INTO ajax_example (name, age, sex, wpm) VALUES ('$name', $age, '$sex', $wpm)";
+$query = "INSERT INTO ajax_example (name, age, sex, salaryPD) VALUES ('$name', $age, '$sex', $salaryPD)";
 $run_table = mysqli_query($con, $query);
 
 

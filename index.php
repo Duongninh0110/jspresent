@@ -24,11 +24,11 @@ include ('db.php');
             Gender:
             <select id="sex">
                 <option value="">Select</option>
-                <option value="m">Man</option>
-                <option value="f">Female</option>
+                <option value="man">Man</option>
+                <option value="female">Female</option>
             </select>
             <br><br>
-             wpm: <input type="text" name="wpm" id="wpm" class="form-control">
+             Salary per day: <input type="text" name="salaryPD" id="salaryPD" class="form-control">
              <br>
 
              <input type="button" name="myBut" onclick="postData()" value="Submit" class="btn btn-success btn-block">
@@ -40,9 +40,9 @@ include ('db.php');
                 <tr>
                     <th>ID</th>
                     <th>name</th>
-                    <th>age</th>
                     <th>sex</th>
-                    <th>wpm</th>
+                    <th>age</th>
+                    <th>salary per day($)</th>
                 </tr>
             </thead>
             <tbody id="table">
@@ -79,14 +79,18 @@ include ('db.php');
             
             var sex = document.querySelector('#sex').value;
             
-            var wpm = document.querySelector('#wpm').value;
-            var data = "name="+name+"&age="+age+"&sex="+sex+"&wpm="+wpm;
+            var salaryPD = document.querySelector('#salaryPD').value;
+            var data = "name="+name+"&age="+age+"&sex="+sex+"&salaryPD="+salaryPD;
 
             console.log(data);
             ajaxRequest.responseType = 'json';
             ajaxRequest.onreadystatechange = ()=>{
                 if(ajaxRequest.readyState === XMLHttpRequest.DONE){
                     getAll();
+                    document.querySelector('#name').value = '';
+                    document.querySelector('#age').value = '';
+                    document.querySelector('#sex').value = '';
+                    document.querySelector('#salaryPD').value = '';
                 }
             }
 
